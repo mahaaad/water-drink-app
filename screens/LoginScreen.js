@@ -1,21 +1,20 @@
 import React from 'react';
 import { StyleSheet, View, Button, Image, Text, SafeAreaView } from 'react-native';
+import {NavigationContainer} from "@react-navigation/native"
+import {createStackNavigator} from '@react-navigation/stack'
 
-function LoginScreen(props) {
-    const login = () => {
-        console.log("clicked")
-    }
+function LoginScreen({navigation}) {
     return (
     <SafeAreaView style={styles.container}>
         <Text style={styles.title}>Drink</Text>
         <Image
             resizeMode="contain"
-            source={require('../assets/water-02.png')}
+            source={require('../assets/fullglass.png')}
             style={styles.glassImage}
         />
         <View style={styles.loginButton}>
         <Button
-            onPress={login}
+            onPress={() => navigation.navigate('DrinkScreen')}
             title="LOG IN"
         />
         </View>
@@ -48,8 +47,7 @@ const styles = StyleSheet.create({
     loginButton: {
         color: "#57D9F7",
         width: "50%",
-        height: "10%", 
-        marginBottom: 1,
+        height: "6%", 
     }
 })
 export default LoginScreen;
